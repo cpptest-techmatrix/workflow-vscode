@@ -1,0 +1,17 @@
+name: Connection
+
+on:
+  schedule:
+    - cron: '0 12 14,15,16 * *'
+
+  workflow_dispatch:
+
+
+jobs:
+  ConnectionCheck:
+    name: ConnectionCheck
+    runs-on: self-hosted-mh
+
+    steps:
+      - name: echo
+        run: echo "hello"
