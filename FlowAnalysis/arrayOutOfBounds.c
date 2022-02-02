@@ -44,5 +44,6 @@ void clearAllCache()
 
 int util_func(int a, int b)
 {
+    /**/
     return a + b;
 }
