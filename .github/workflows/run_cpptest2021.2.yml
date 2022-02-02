@@ -23,7 +23,7 @@ jobs:
     - name: Generate BDF
       env:
         CPPTEST_SCAN_PROJECT_NAME: FlowAnalysis
-      run: /opt/app/cpptest/bin/cpptesttrace make
+      run: pwd && /opt/app/cpptest/bin/cpptesttrace make
       working-directory: FlowAnalysis
       
     #- name: Generate Local Settings
