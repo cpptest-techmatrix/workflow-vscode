@@ -42,7 +42,7 @@ jobs:
         compilerConfig: 'arm-none-eabi-gcc_9-64'
         testConfig: 'builtin://MISRA C 2012'
         reportFormat: xml,html,sarif
-        input: './FlowAnalysis/cpptest.bdf'
+        input: './FlowAnalysis/cpptestscan.bdf'
         # For Standard
          # additionalParams: '-property report.custom.extension=sarif -property report.custom.xsl.file=${PARASOFT_SARIF_XSL}'
          # commandLinePattern : ' ${cpptestcli} -data ../workspace -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams} '
