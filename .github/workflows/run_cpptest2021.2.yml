@@ -24,7 +24,7 @@ jobs:
       env:
         CPPTEST_SCAN_PROJECT_NAME: FlowAnalysis
       run: /opt/app/cpptest/bin/cpptesttrace make all
-      working-directory: ./FlowAnalysis
+      working-directory: ./workflow-vscode/workflow-vscode/FlowAnalysis
       
     #- name: Generate Local Settings
       #run: |
@@ -46,7 +46,7 @@ jobs:
         # For Standard
          # additionalParams: '-property report.custom.extension=sarif -property report.custom.xsl.file=${PARASOFT_SARIF_XSL}'
          # commandLinePattern : ' ${cpptestcli} -data ../workspace -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams} '
-        additionalParams: '-localsettings ./FlowAnalysis/cpptest.ls.properties'
+        additionalParams: '-localsettings ./workflow-vscode/workflow-vscode/FlowAnalysis/cpptest.ls.properties'
         commandLinePattern: '${cpptestcli} -data ./ -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams}'
 
     # Uploads analysis results in the SARIF format, so that they are displayed as GitHub code scanning alerts.
