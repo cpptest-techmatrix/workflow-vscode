@@ -14,4 +14,3 @@ Person* retrievePersonFromDB(int32_t id)
     /* initialize p with the data from the database */
     return p;
 }
-
