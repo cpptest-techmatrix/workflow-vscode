@@ -6,14 +6,14 @@
 
 Person* cache[CACHE_SIZE];
 
-int clip(int n, int l, int h)
+int32_t clip(int32_t n, int32_t l, int32_t h)
 {
     return (n > h) ? h : ((n < l) ? l : n);
 }
 
 Person* selectPerson()
 {
-    int id;
+    int32_t id;
     printf("Please enter person id: \n");
     scanf("%d", &id);
    
@@ -26,9 +26,9 @@ Person* selectPerson()
     return cache[id];
 }
 
-void clearCache(int from_id, int to_id)
+void clearCache(int32_t from_id, int32_t to_id)
 {
-    int i;
+    int32_t i;
     for (i = from_id; i <= to_id; i++) {
         if (cache[i] != 0) {
             free(cache[i]);

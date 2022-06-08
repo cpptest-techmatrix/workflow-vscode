@@ -20,7 +20,7 @@ void printFile(FILE* file)
     }
 }
 
-int displayFileContent()
+int32_t displayFileContent()
 {
     FILE *file;
     file = fopen("myfile.txt", "r"); 
@@ -35,15 +35,15 @@ int displayFileContent()
     return 0;
 }
 
-int displayContentOfSeveralFiles()
+int32_t displayContentOfSeveralFiles()
 {
-    int ARRSIZE = 3;
+    int32_t ARRSIZE = 3;
     static char *names[] = {
         "file1.txt",
         "file2.txt",
         "file3.txt",
     };
-    int i;
+    int32_t i;
     FILE *file = NULL;
     for (i = 0; i < ARRSIZE; ++i) {
         file = fopen(names[i], "r"); 

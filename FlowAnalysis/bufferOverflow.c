@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 
 #define BUFFER_SIZE 999
@@ -8,7 +9,7 @@ char buffer[BUFFER_SIZE];
 
 void fillBuffer()
 {
-    int size, character;
+    int32_t size, character;
     printf("Please enter filling parameters: \n");
     scanf("%d%d", &size, &character);
    
@@ -21,9 +22,9 @@ void fillBuffer()
     memset(buffer, character, size); /* POSSIBLE BUFFER OVERFLOW HERE */
 }
 
-void resetBuffer(int size)
+void resetBuffer(int32_t size)
 {
-    int i;
+    int32_t i;
     memset(buffer, 0, size);
 }
 

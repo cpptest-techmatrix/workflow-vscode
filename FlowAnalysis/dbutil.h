@@ -1,9 +1,11 @@
+#include <stdint.h>
+
 typedef struct Person {
     char* name;
-    int personalId;
+    int32_t personalId;
     char* reference;
-    int salary;
-    int daysWorkedInPassedMonth;
+    int32_t salary;
+    int32_t daysWorkedInPassedMonth;
 } Person;
 
-Person* retrievePersonFromDB(int id);
+Person* retrievePersonFromDB(int32_t id);

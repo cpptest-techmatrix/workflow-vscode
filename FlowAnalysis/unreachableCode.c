@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 
 enum Figures {
     SPHERE,
@@ -8,9 +9,9 @@ enum Figures {
     HEMISPHERE
 };
 
-static void guessFigure(int round, int volumetric)
+static void guessFigure(int32_t round, int32_t volumetric)
 {
-    int figure;
+    int32_t figure;
     if (round && volumetric) {
         figure = SPHERE;
     } else if (round && !volumetric) {

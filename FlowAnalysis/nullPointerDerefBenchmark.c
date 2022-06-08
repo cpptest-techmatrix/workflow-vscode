@@ -1,19 +1,20 @@
 #include <stdio.h>
+#include <stdint.h>
 
-static int i = 10;
-static int* x;
+static int32_t i = 10;
+static int32_t* x;
 
-static int helper1(char b) {
+static int32_t helper1(char b) {
     if (b)
         return 0;
     return *x;
 }
 
-static int helper2() {
+static int32_t helper2() {
     return *x;
 }
 
-static int noFalseViolation1(int level) {
+static int32_t noFalseViolation1(int32_t level) {
     x = 0;
     if (level > 0)
         x = &i;
@@ -22,7 +23,7 @@ static int noFalseViolation1(int level) {
     return 0;
 }
 
-static int noFalseViolation2(char b) {
+static int32_t noFalseViolation2(char b) {
     x = 0;
     if (b)
         x = &i;
@@ -31,8 +32,8 @@ static int noFalseViolation2(char b) {
     return 0;
 }
 
-static int noFalseViolation3(char b) {
-    int* y = 0;
+static int32_t noFalseViolation3(char b) {
+    int32_t* y = 0;
     if (x != 0)
         y = &i;
     if (y != 0)
@@ -41,8 +42,8 @@ static int noFalseViolation3(char b) {
         return 0;
 }
 
-static int trueViolation(char b) {
-    int* y = 0;
+static int32_t trueViolation(char b) {
+    int32_t* y = 0;
     if (x != 0)
         y = &i;
     if (y != 0)
@@ -51,7 +52,7 @@ static int trueViolation(char b) {
         return *x;
 }
 
-static int functionCall_noFalseViolation1(char b) {
+static int32_t functionCall_noFalseViolation1(char b) {
     x = 0;
     if (!b)
         x = &i;
@@ -59,20 +60,20 @@ static int functionCall_noFalseViolation1(char b) {
 }
 
 
-static int functionCall_noFalseViolation2(int* x) {
+static int32_t functionCall_noFalseViolation2(int32_t* x) {
     if (x == 0) /* checking parameter (not the global variable) for null */
         printf("x is null");
     return helper2();
 }
 
-static int functionCall_trueViolation1(char b) {
+static int32_t functionCall_trueViolation1(char b) {
     x = 0;
     if (b)
         x = &i;
     return helper1(b);
 }
 
-static int functionCall_trueViolation2() {
+static int32_t functionCall_trueViolation2() {
     x = 0;
     return helper2();
 }

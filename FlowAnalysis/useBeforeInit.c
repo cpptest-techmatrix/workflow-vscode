@@ -15,7 +15,7 @@ void storePersonToDB(Person *p)
 void writePersonToFile(Person *person, char* filename)
 {
     FILE *file;
-    int numberOfCharactersPrinted;
+    int32_t numberOfCharactersPrinted;
     file = fopen(filename, "w");
    
     if (file!=NULL) {

@@ -1,7 +1,7 @@
 #include "sensor.h"
 
-int addSignals(int signalA, int signalB, int temp) {
-	int result = 0;
+int32_t addSignals(int32_t signalA, int32_t signalB, int32_t temp) {
+	int32_t result = 0;
 	if (needCompensation() != 0) {
 		result = signalA + signalB + calcCompensation(temp);
 	} else {
@@ -10,8 +10,8 @@ int addSignals(int signalA, int signalB, int temp) {
 	return result;
 }
 
-int getTemperature(int * result) {
-	int attempts = 0;
+int32_t getTemperature(int32_t * result) {
+	int32_t attempts = 0;
 
 	sensor_handle sh = initializeSensor(SENSORS);
 	if(!sh) {
@@ -34,9 +34,9 @@ int getTemperature(int * result) {
 
 sensor_handle initializeSensor(unsigned id)
 {
-	static int handles[CATEGORIES][HANDLE_NUM] = {{0,0,0}, {0,0,0}};
+	static int32_t handles[CATEGORIES][HANDLE_NUM] = {{0,0,0}, {0,0,0}};
 	sensor_handle handle = 0;
-	int i = 0;
+	int32_t i = 0;
 
 	if (id < 0 || id >= CATEGORIES) {
 		return handle;

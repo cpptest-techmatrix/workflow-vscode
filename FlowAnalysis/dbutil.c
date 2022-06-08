@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "dbutil.h"
 
-Person* retrievePersonFromDB(int id)
+Person* retrievePersonFromDB(int32_t id)
 {
     Person* p;
-    int MIN_ID = 1;
+    int32_t MIN_ID = 1;
     if (id < MIN_ID) {
         return NULL;
     }
