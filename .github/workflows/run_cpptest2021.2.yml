@@ -23,14 +23,6 @@ jobs:
         CPPTEST_SCAN_PROJECT_NAME: FlowAnalysis
       run: cmake . && /opt/app/cpptest/bin/cpptesttrace make
       working-directory: ./FlowAnalysis
-      
-    #- name: Generate Local Settings
-      #run: |
-        #echo report.format=sarif > ls_2021.properties
-        #echo scontrol.git.exec=git.exe >> ls_2021.properties
-        #echo scontrol.rep.git.branch=main >> ls_2021.properties
-        #echo scontrol.rep.git.url=https\://github.com/cpptest-techmatrix/github-actions-cpptest >> ls_2021.properties
-        #echo scontrol.rep.git.workspace=C\:\\actions-runner\\_work\\github-actions-cpptest\\github-actions-cpptest >> ls_2021.properties
 
     - name: Run C++test
       # Use the 'run-cpptest-action' GitHub Action.
@@ -41,11 +33,8 @@ jobs:
         testConfig: 'user://cpptest.local.MISRA C2012'
         reportFormat: xml,html,sarif
         input: './FlowAnalysis/cpptestscan.bdf'
-        # For Standard
-         # additionalParams: '-property report.custom.extension=sarif -property report.custom.xsl.file=${PARASOFT_SARIF_XSL}'
-         # commandLinePattern : ' ${cpptestcli} -data ../workspace -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams} '
         additionalParams: '-localsettings cpptest.ls.properties'
-        commandLinePattern: '${cpptestcli} -data ./ -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams} -publish'
+        commandLinePattern: '${cpptestcli} -data ./ -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams}'
 
     # Uploads analysis results in the SARIF format, so that they are displayed as GitHub code scanning alerts.
     - name: Upload results (SARIF)
